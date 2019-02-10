@@ -26,7 +26,7 @@ public class CrudbootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudbootApplication.class, args);
 	}
-	
+	//testing the build.
 	/**
 	 * Save users and students to H2 DB for testing
 	 * @param repository
