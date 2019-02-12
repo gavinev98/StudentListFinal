@@ -10,7 +10,7 @@ install:
 addons:
   sonarcloud:
     organization: "gavinev98-github" # the key of the org you chose at step #3
-    token:
+    token: SONARKEY
       secure: ********* # encrypted value of your token
 script:
 # other script steps might be done before running the actual analysis
