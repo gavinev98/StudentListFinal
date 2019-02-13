@@ -5,8 +5,6 @@ jdk:
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-
-
 addons:
   sonarcloud:
     organization: "gavinev98-github" # the key of the org you chose at step #3
@@ -16,3 +14,19 @@ script:
 # other script steps might be done before running the actual analysis
 - mvn test
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+
+stages:
+- compile
+- test
+- deploy
+
+jobs:
+  include:
+  - stage: test
+    script: ./addUser
+  - # stage name not required, will continue to use `test`
+    script: ./addStudent
+  - stage: deploy
+    script: ./deploy
+
+
