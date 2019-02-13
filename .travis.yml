@@ -23,9 +23,9 @@ stages:
 jobs:
   include:
   - stage: test
-    script: ./addUser
+    script: ./CrudbootApplicationTests
   - # stage name not required, will continue to use `test`
-    script: ./addStudent
+    script: ./CrudbootApplicationTests
   - stage: deploy
     script: ./deploy
 
