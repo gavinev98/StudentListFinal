@@ -2,13 +2,10 @@ jdk:
 - oraclejdk8
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-
 stages:
 - compile
 - test
 - deploy
-
-
 addons:
   sonarcloud:
     organization: gavinev98-github
@@ -17,9 +14,8 @@ addons:
 script:
 - mvn test
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
-
 deploy:
   provider: heroku
   api_key:
-    secure: ehODBloAIVA5K9NK78GAQnr2n4YqAn0KMZhRFmsy6Z0znakG9E3CHFMPARkj5JOoJKYmZRskEd/4C+b7CkiOTGb5nyMJvbJcyiK5c26OA2KbKg3NF9XN023Gw26RO7SADx9YSsbbHekrkxQH2ckhCgvZE5qNlhgvGWw1vfV/GrYts0eP/16Dv/Zl+pAl1OpTCigtpsVwHv3aqWN0O4lkMF0QZev9LKlX/Y18aSyq/P0R90ouLImker7qqWBVrgGOJX5bdVbiCtDcTKCsYYL2w0T7TBbDusbFbORqJ4ey7TBbOJyN8ePoCg1qNzb6qD5RXG8jFncXUlG5ghwyqPJq0YVZ2M72m7FDRBYE7gDi5Z/BRffvOiF/6bs7sNU3tpOx+Nkat4S0bw4Evcm5rquyhGeY3RlReNow0Wb5NEGj7ZK8ALHI+CRCE+ypW0eOCZPdEycm3/PjQpZuTiWrqxZ60BcZnjGgKxAuMXoIpl9/y0I0SGZ/NzltxAy4EGZAuK2JgCfPpUX+rSShwZqroUr/PRe7k0D70h07s7Lg+PouYoE7rNRi8PEaFi4n4kD5JHwQLivPFdhKPUg//S4ZpxOFvJdBcyBRd9U7BW9XhTFbKkWuNb2qNoFTZ8EfwvkFnVeBEYJd1T3bgkhJRqTeHUYSz72JvJHGzY3mVoNFlzuYTuw=
-    app: StudentListFinal
+    secure: pfG+5NVhtP/UZ3x2Bssy+uzXRFY+dDshv1wtsecxN49Pc15KnMU6qYxAzxJtEplMew2zrUPPKJRHOVvmvr5MwK3Y/fKbTZf1jHpASqC0/7PilZQF8BkXwJJJvr6XM52DK7waoVKEhM6fW+d5hwM1O+DhGavtMl+b0Z0rC+v3Gjscxk3ZVWL6+asvPUvNAWJdCrcHPKRrG7jTv/32WeYd6pUOlsEiLY6kR7wh2wI4f6zCbg6FFr4Ujys3YZYE55P5HqEfDRniyY6Rafb1lqADJpntrik7w8tFMDCzFhWgB7Cyyd8KJWj5Xk9zd8wANMtKsmmGv6HswI7niWHQWLe0jOTrNrq2YS1ZoZeWvUsoaE/ZW7xPNe9bqqNWqt6XhX/WcyLd54lk1gsjeVyD3shNvQrGtmHYgP8Yu93Shn47BSnv1mso/g1ZxOlcKXKiiTwoeq/jL7iZocgG1m5Mwrq6Xbn4yP5kgjylcaT4aED9AydVGwYe6FrxH88x0yNLnC3G9/wPyXZ08GmsFsc7NVz1DmuUxrpzHqZophsztVWtue968mPnVomE8BB2vm2jztnzKlBIB0q5vblG5g9qzbWzUNG+PNR4tEnKKzyUeh1bfZIor1w0nkVNnn5zDi2/AgOMwkRMnRY/L9+qOUEe23bB91U6nmsT5vk3nXL0W1WxtEQ=
+    app: gavinev98/StudentListFinal
