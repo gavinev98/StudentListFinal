@@ -11,6 +11,7 @@ addons:
     organization: gavinev98-github
     token:
       secure: 37cc29a32a05b3205a101ccb430bb108813ad27b
+      
 script:
 - mvn test
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
