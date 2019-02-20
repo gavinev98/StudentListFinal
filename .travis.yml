@@ -18,7 +18,8 @@ script:
 jobs:
   include:
   - stage: Testing Application
-    script: - ./mvnw org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar -B
+    script:
+        - ./mvnw org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar -B
 
 
 notifications:
