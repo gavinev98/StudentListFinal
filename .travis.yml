@@ -14,11 +14,11 @@ jobs:
   include:
     - stage: build docker image
       script:
-        - echo "$kerry1234" | docker login -u "$gavinev98" --password-stdin
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t docker-spring-boot .
         - docker images
-        - docker tag docker-spring-boot $gavinev98/docker-spring-boot
-        - docker push $gavinev98/docker-spring-boot
+        - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot
+        - docker push $DOCKER_USERNAME/docker-spring-boot
 
 addons:
   sonarcloud:
