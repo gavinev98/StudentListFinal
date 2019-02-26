@@ -2,10 +2,24 @@ jdk:
 - oraclejdk8
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+services:
+  - docker
+dist: trusty
 stages:
 - compile
 - test
 - deploy
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+        - echo "$kerry1234" | docker login -u "$gavinev98" --password-stdin
+        - docker build -t docker-spring-boot .
+        - docker images
+        - docker tag docker-spring-boot $gavinev98/docker-spring-boot
+        - docker push $gavinev98/docker-spring-boot
+
 addons:
   sonarcloud:
     organization: gavinev98-github
