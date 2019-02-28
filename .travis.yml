@@ -5,29 +5,34 @@ install:
 services:
   - docker
 dist: trusty
-stages:
-- compile
-- test
-- deploy
-# jobs to be included.
-jobs:
-  include:
-    - stage: build docker image
-      script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker build -t docker-spring-boot .
-        - docker images
-        - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot
-        - docker push $DOCKER_USERNAME/docker-spring-boot
 
 addons:
   sonarcloud:
     organization: gavinev98-github
     token:
       secure: 37cc29a32a05b3205a101ccb430bb108813ad27b
-script:
-- mvn test
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+
+stages:
+- Sonarcloud Analysis
+- Build docker image
+- Test docker image
+
+# jobs to be included.
+jobs:
+  include:
+    - stage: Build docker image
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t docker-spring-boot .
+        - docker images
+        - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot
+        - docker push $DOCKER_USERNAME/docker-spring-boot
+    - stage: Test docker image
+      script: docker run --rm $DOCKER_USERNAME/docker-spring-boot cat output.txt
+    - stage: Sonarcloud Analysis
+      script:
+        - mvn test
+        - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 
 notifications:
   slack:
