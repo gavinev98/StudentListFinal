@@ -53,9 +53,9 @@ jobs:
         app: studentlistfinal
     - stage: Heroku Deployment / Test Production
       script: 'curl https://studentlistfinal.herokuapp.com'
-    - stage: Send Slack notification
-      script:
-        notifications:
-          slack:
-            secure: h2At3CNf9bPMo4JJLyASd1Zjkm+u6HrRNbpzkcfr4eAWjpjfeuyrxZbYa1cPPnV4UuNS39sHTcmzhNbmry5dSYKQXgxROHLRkGeuEDNNeLQssLDkUxaGbq4+otRNEfxC2VpQlsSsly7jO76kg/a4reArw9g9EhyoWfB7V/D07CvT2kPD8kKqsVuAOEPFqlqSWcjGmKOue7lVa2XaKc+wXGESqQ4DIIPkCACKOsQ4un8OfS/Xs/2ovyt7G1Jrr0BVSMTAw8VwE6MKi2mZ+8YhOKIsuN/3xRiG2OqS5wggowIsZrkCm5wTY/jBLLQ9Bl3uon+QsVvdPkrDc4J0+NZ4P8UuiNx0BGs7Km7a3Dh+4R/wSEEM/AdbatGAhMCjobsg16p3I1wTmpNywduwQU2y9NLiOExF1eudywTmBQpacye+d74h37kKIE8xO0Lrq0+DQqJSDAlmTENPf7hR2BQmllctm3rLlUgbSc4Oe9+c7aHDNId7ADCdakc2+RWucuyV5LycODj+MvmoK5Yj0WGtVrHm9udzf2lQKa9KI93RQMui1+neWBs1vkD7AL4k8GL7Df9JiqM5Z6USha6d59NY0mz0AHgyGw4EP2OOzdOnWTWhkrNVToaODtOo9mGdLoVdZHevlX+hhSA/eENvoEvOVoNMOzLJu8gxFqNaNFr0F6E=
+
+
+notifications:
+  slack:
+    secure: h2At3CNf9bPMo4JJLyASd1Zjkm+u6HrRNbpzkcfr4eAWjpjfeuyrxZbYa1cPPnV4UuNS39sHTcmzhNbmry5dSYKQXgxROHLRkGeuEDNNeLQssLDkUxaGbq4+otRNEfxC2VpQlsSsly7jO76kg/a4reArw9g9EhyoWfB7V/D07CvT2kPD8kKqsVuAOEPFqlqSWcjGmKOue7lVa2XaKc+wXGESqQ4DIIPkCACKOsQ4un8OfS/Xs/2ovyt7G1Jrr0BVSMTAw8VwE6MKi2mZ+8YhOKIsuN/3xRiG2OqS5wggowIsZrkCm5wTY/jBLLQ9Bl3uon+QsVvdPkrDc4J0+NZ4P8UuiNx0BGs7Km7a3Dh+4R/wSEEM/AdbatGAhMCjobsg16p3I1wTmpNywduwQU2y9NLiOExF1eudywTmBQpacye+d74h37kKIE8xO0Lrq0+DQqJSDAlmTENPf7hR2BQmllctm3rLlUgbSc4Oe9+c7aHDNId7ADCdakc2+RWucuyV5LycODj+MvmoK5Yj0WGtVrHm9udzf2lQKa9KI93RQMui1+neWBs1vkD7AL4k8GL7Df9JiqM5Z6USha6d59NY0mz0AHgyGw4EP2OOzdOnWTWhkrNVToaODtOo9mGdLoVdZHevlX+hhSA/eENvoEvOVoNMOzLJu8gxFqNaNFr0F6E=
 
