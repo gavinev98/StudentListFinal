@@ -9,7 +9,7 @@ stages:
 - compile
 - test
 - deploy
-
+# jobs to be included.
 jobs:
   include:
     - stage: build docker image
