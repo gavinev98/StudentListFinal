@@ -6,11 +6,44 @@ services:
   - docker
 dist: trusty
 
+env:
+  global:
+  # COVERITY_SCAN_TOKEN
+  # ** specific to your project **
+  - secure: "uWg-L2Girn20ib3th46vjg"
+
+
+
 addons:
   sonarcloud:
     organization: gavinev98-github
     token:
       secure: 37cc29a32a05b3205a101ccb430bb108813ad27b
+
+  coverity_scan:
+
+    # GitHub project metadata
+    # ** specific to your project **
+    project:
+      name: gavinev98/studentlistfinal
+      version: 1.0
+      description: My Project
+
+    # Where email notification of build analysis results will be sent
+    notification_email: gavin.everett48@hotmail.com
+
+    # Commands to prepare for build_command
+    # ** likely specific to your build **
+    build_command_prepend: ./configure
+
+    # The command that will be added as an argument to "cov-build" to compile your project for analysis,
+    # ** likely specific to your build **
+    build_command: make
+
+    # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
+    # Take care in resource usage, and consider the build frequency allowances per
+    #   https://scan.coverity.com/faq#frequency
+    branch_pattern: coverity_scan
 
 stages:
 - Sonarcloud Analysis
