@@ -60,8 +60,7 @@ stages:
 jobs:
   include:
     - stage: Unit Tests
-      script:
-        - java -cp "/Users/Gavin Everett/Desktop/gitstudent/StudentListFinal/src/test/java/fi/haagahelia/course/" CrubbootApplicationTests.java
+
     - stage: Sonarcloud Analysis
       script:
       - mvn test
