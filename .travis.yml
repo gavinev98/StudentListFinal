@@ -47,7 +47,6 @@ addons:
     branch_pattern: coverity_scan
 
 stages:
-- Unit Tests
 - Sonarcloud Analysis
 - Build docker image
 - Test docker image
@@ -59,8 +58,6 @@ stages:
 # jobs to be included..
 jobs:
   include:
-    - stage: Unit Tests
-
     - stage: Sonarcloud Analysis
       script:
       - mvn test
