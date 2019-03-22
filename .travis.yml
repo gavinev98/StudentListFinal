@@ -46,6 +46,7 @@ addons:
     branch_pattern: coverity_scan
 
 stages:
+- Unit Tests
 - Sonarcloud Analysis
 - Build docker image
 - Test docker image
@@ -57,6 +58,9 @@ stages:
 # jobs to be included..
 jobs:
   include:
+    - stage: Unit Tests
+      script:
+        - java -cp "C:\Users\Gavin Everett\Desktop\gitstudent\StudentListFinal\src\test\java\fi\haagahelia\course\" CrubbootApplicationTests.java
     - stage: Sonarcloud Analysis
       script:
       - mvn test
