@@ -62,7 +62,7 @@ jobs:
     - stage: Unit Testing
       script:
         - mvn -Dtest=CrudbootApplication#addUser test
-        script:
+      script:
         - mvn -Dtest=CrudbootApplication#addStudent test
     - stage: Sonarcloud Analysis
       script:
