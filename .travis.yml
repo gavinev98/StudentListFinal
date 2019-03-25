@@ -60,10 +60,9 @@ stages:
 jobs:
   include:
     - stage: Unit Testing
-      script:
-        - mvn -Dtest=CrudbootApplication#addUser test
-      script:
-        - mvn -Dtest=CrudbootApplication#addStudent test
+      script: mvn -Dtest=CrudbootApplicationTests#addUser test
+    - # stage name not required, will continue to use `test`
+      script: mvn -Dtest=CrudbootApplicationTests#addStudent test
     - stage: Sonarcloud Analysis
       script:
       - mvn test
