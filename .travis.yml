@@ -61,7 +61,7 @@ jobs:
   include:
     - stage: Unit Testing
       script:
-        - java CrudbootApplicationTests.java
+        - java ./CrudbootApplicationTests.java
     - stage: Sonarcloud Analysis
       script:
       - mvn test
