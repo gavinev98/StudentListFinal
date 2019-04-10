@@ -86,7 +86,7 @@ jobs:
       script: skip
       deploy:
         <<: *heroku
-        app: studentlistfinal
+        app: devops-production
     - stage: Heroku Deployment / Test Production
       script: 'curl https://studentlistfinal.herokuapp.com'
 
