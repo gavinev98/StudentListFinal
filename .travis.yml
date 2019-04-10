@@ -30,7 +30,7 @@ addons:
       version: 1.0
       description: My Project
 
-    # Where email notification of build analysis results will be sent
+    # Where email notification of build analysis results will be sent.
     notification_email: gavin.everett48@hotmail.com
 
     # Commands to prepare for build_command
@@ -50,7 +50,6 @@ stages:
 - Unit Tests
 - Sonarcloud Analysis
 - Build docker image
-- Test docker image
 - Heroku Deployment / Deploy to Staging
 - Heroku Deployment / Testing staging
 - Heroku Deployment / Deploy to production
@@ -74,8 +73,6 @@ jobs:
         - docker images
         - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot
         - docker push $DOCKER_USERNAME/docker-spring-boot
-    - stage: Test docker image
-      script: docker run --rm $DOCKER_USERNAME/docker-spring-boot
     - stage: Heroku Deployment / Deploy to Staging
       script: skip
       deploy: &heroku
