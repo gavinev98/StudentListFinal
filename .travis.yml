@@ -48,7 +48,7 @@ addons:
     branch_pattern: coverity_scan
 
 stages:
-- Unit Tests
+- Unit Testing
 - Sonarcloud Analysis
 - Build docker image
 - Heroku Deployment / Deploy to Staging
