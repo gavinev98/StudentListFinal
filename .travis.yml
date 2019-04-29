@@ -22,32 +22,6 @@ addons:
       secure: 37cc29a32a05b3205a101ccb430bb108813ad27b
 
 
-  coverity_scan:
-
-    # GitHub project metadata
-    # ** specific to your project **
-    # ** Testing **
-    project:
-      name: gavinev98/studentlistfinal
-      version: 1.0
-      description: My Project
-
-    # Where email notification of build analysis results will be sent.
-    notification_email: gavin.everett48@hotmail.com
-
-    # Commands to prepare for build_command
-    # ** likely specific to your build **
-    build_command_prepend: ./configure
-
-    # The command that will be added as an argument to "cov-build" to compile your project for analysis,
-    # ** likely specific to your build **
-    build_command: make
-
-    # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
-    # Take care in resource usage, and consider the build frequency allowances per
-    #   https://scan.coverity.com/faq#frequency
-    branch_pattern: coverity_scan
-
 before_install:
 # install heroku CLI
 - wget -qO- https://toolbelt.heroku.com/install.sh | sh
@@ -81,7 +55,7 @@ jobs:
         - docker build -t docker-spring-boot .
         - docker images
         - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot
-      registry.heroku.com/$HEROKU_APP_NAME/web
+          registry.heroku.com/$HEROKU_APP_NAME/web
     - stage: Heroku Deployment / Deploy to Staging
       deploy: &heroku
         provider: script
