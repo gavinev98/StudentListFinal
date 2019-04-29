@@ -58,30 +58,21 @@ jobs:
       - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
     - stage: Build docker image
       script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - yarn test
+        - yarn build
+      # build docker images
         - docker build -t docker-spring-boot .
-        - docker images
-        - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot
-      registry.heroku.com/$HEROKU_APP_NAME/web
-    - stage: Heroku Deployment / Deploy to Staging
-      deploy: &heroku
+        - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot registry.heroku.com/$HEROKU_APP_NAME/web
+    - stage: Deploy
+      deploy:
         provider: script
         script:
-          # push to dockerhub & heroku
+        # push to dockerhub & heroku
           docker push $DOCKER_USERNAME/docker-spring-boot;
           docker push registry.heroku.com/$HEROKU_APP_NAME/web;
           heroku container: web release --app $ HEROKU_APP_NAME
-        on:
+          on:
           branch: master
-    - stage: Heroku Deployment / Testing staging
-      script: 'curl https://studentlistfinal.herokuapp.com'
-    - stage: Heroku Deployment / Deploy to production
-      script: skip
-      deploy:
-        <<: *heroku
-        app: devops-production
-    - stage: Heroku Deployment / Test Production
-      script: 'curl https://studentlistfinal.herokuapp.com'
 
 
 notifications:
