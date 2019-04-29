@@ -1,7 +1,7 @@
-jdk:
-- oraclejdk8
 sudo: required
-language: java
+language: node_js
+node_js:
+- "9"
 services:
 - docker
 
