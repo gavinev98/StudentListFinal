@@ -68,12 +68,12 @@ script:
 deploy:
   provider: script
   script:
-        # push to dockerhub & heroku
+    # push to dockerhub & heroku
     docker push $DOCKER_USERNAME/docker-spring-boot;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    heroku container: web release --app $HEROKU_APP_NAME
-  on:
-    branch: master
+    heroku container: web release --app $ HEROKU_APP_NAME
+    on:
+      branch: master
 
 
 notifications:
