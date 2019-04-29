@@ -62,7 +62,7 @@ jobs:
         - docker build -t docker-spring-boot .
         - docker images
         - docker tag docker-spring-boot $DOCKER_USERNAME/docker-spring-boot
-          registry.heroku.com/$HEROKU_APP_NAME/web
+      registry.heroku.com/$HEROKU_APP_NAME/web
     - stage: Heroku Deployment / Deploy to Staging
       deploy: &heroku
         provider: script
