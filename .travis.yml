@@ -1,14 +1,9 @@
 jdk:
 - oraclejdk8
-language: java
 sudo: required
-install:
-- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-# install deps
-- yarn install
+language: java
 services:
-  - docker
-dist: trusty
+- docker
 
 
 
@@ -18,6 +13,10 @@ before_install:
 # login to docker registries (dockerhub + heroku)
 - echo "$ DOCKER_PASSWORD" | docker login -u "$ DOCKER_USERNAME" --password-stdin
 - echo "$ HEROKU_PASSWORD" | docker login -u "$ HEROKU_USERNAME" --password-stdin registry.heroku.com
+
+install:
+# install deps
+- yarn install
 
 
 addons:
