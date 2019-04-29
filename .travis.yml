@@ -1,11 +1,24 @@
 jdk:
 - oraclejdk8
 language: java
+sudo: required
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+# install deps
+- yarn install
 services:
   - docker
 dist: trusty
+
+
+
+before_install:
+# install heroku CLI
+- wget -qO- https://toolbelt.heroku.com/install.sh | sh
+# login to docker registries (dockerhub + heroku)
+- echo "$ DOCKER_PASSWORD" | docker login -u "$ DOCKER_USERNAME" --password-stdin
+- echo "$ HEROKU_PASSWORD" | docker login -u "$ HEROKU_USERNAME" --password-stdin registry.heroku.com
+
 
 env:
   global:
@@ -15,19 +28,13 @@ env:
 
 
 
+
 addons:
   sonarcloud:
     organization: gavinev98-github
     token:
       secure: 37cc29a32a05b3205a101ccb430bb108813ad27b
 
-
-before_install:
-# install heroku CLI
-- wget -qO- https://toolbelt.heroku.com/install.sh | sh
-# login to docker registries (dockerhub + heroku)
-- echo "$ DOCKER_PASSWORD" | docker login -u "$ DOCKER_USERNAME" --password-stdin
-- echo "$ HEROKU_PASSWORD" | docker login -u "$ HEROKU_USERNAME" --password-stdin registry.heroku.com
 
 stages:
 - Unit Testing
