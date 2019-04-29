@@ -20,15 +20,6 @@ before_install:
 - echo "$ HEROKU_PASSWORD" | docker login -u "$ HEROKU_USERNAME" --password-stdin registry.heroku.com
 
 
-env:
-  global:
-  # COVERITY_SCAN_TOKEN
-  # ** specific to your project **
-  - secure: "uWg-L2Girn20ib3th46vjg"
-
-
-
-
 addons:
   sonarcloud:
     organization: gavinev98-github
