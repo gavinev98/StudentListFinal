@@ -45,7 +45,7 @@ stages:
 - Heroku Deployment / Deploy to production
 - Heroku Deployment / Test Production
 
-# jobs to be included..
+# jobs to be included...
 jobs:
   include:
     - stage: Unit Testing
