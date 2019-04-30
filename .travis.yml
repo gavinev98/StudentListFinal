@@ -25,7 +25,7 @@ addons:
 
     # GitHub project metadata
     # ** specific to your project **
-    # ** Testing **
+    # ** Testing ****
     project:
       name: gavinev98/studentlistfinal
       version: 1.0
